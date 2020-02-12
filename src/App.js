@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { FlowChartWithState } from '@mrblenny/react-flow-chart';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Page from './components/Page';
+import Content from './components/Content';
+import DragAndDropSidebar from './containers/DragAndDropSidebar';
+import { chartSimple } from './containers/misc/exampleChartState';
+
+class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      chartSimple: chartSimple,
+    };
+  }
+
+  render() {
+    return (
+      <Page>
+        <Content>
+          <FlowChartWithState initialValue={this.state.chartSimple} />
+        </Content>
+        <DragAndDropSidebar />
+      </Page>
+    );
+  }
 }
 
 export default App;
