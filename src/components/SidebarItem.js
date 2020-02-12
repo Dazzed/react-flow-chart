@@ -6,8 +6,6 @@ export default ({ type, ports, properties }) => {
       className="sidebar-item"
       draggable
       onDragStart={event => {
-        console.log('onDragStart', event);
-
         event.dataTransfer.setData(
           'react-flow-chart',
           JSON.stringify({ type, ports, properties })

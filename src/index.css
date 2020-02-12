@@ -13,6 +13,11 @@ body {
   box-sizing: inherit;
 }
 
+hr {
+  border: 0.5px solid;
+  width: 80%;
+}
+
 .page-content {
   display: flex;
   flex-direction: row;
@@ -37,10 +42,14 @@ body {
 }
 
 .sidebar-item {
-  padding: 20px 30px;
+  padding: 15px 30px;
   font-size: 14px;
   background: white;
   cursor: move;
+}
+
+.react-draggable {
+  border-radius: 25px !important;
 }
 
 .message {
@@ -49,12 +58,19 @@ body {
   background: rgba(0, 0, 0, 0.05);
 }
 
-.button {
+.delete-button {
   padding: 10px 15px;
-  background: cornflowerblue;
+  background: orangered;
   color: white;
   border-radius: 3px;
   text-align: center;
   transition: 0.3s ease all;
   cursor: pointer;
+}
+
+.text-input {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: 1px solid cornflowerblue;
+  width: 100%;
 }

@@ -6,7 +6,23 @@ import Sidebar from './components/Sidebar';
 import { defaultChart } from './config/constants';
 
 class App extends Component {
-  state = cloneDeep(defaultChart);
+  constructor(props) {
+    super(props);
+    this.state = cloneDeep(defaultChart);
+
+    this.setNodeInnerText = this.setNodeInnerText.bind(this);
+  }
+
+  setNodeInnerText(id, text) {
+    const nodes = this.state.nodes;
+
+    if (nodes[id]) {
+      nodes[id].type = text;
+      this.setState({
+        nodes,
+      });
+    }
+  }
 
   render() {
     const chart = this.state;
@@ -19,7 +35,11 @@ class App extends Component {
         <div className="content">
           <FlowChart chart={chart} callbacks={stateActions} />
         </div>
-        <Sidebar chart={chart} stateActions={stateActions} />
+        <Sidebar
+          chart={chart}
+          stateActions={stateActions}
+          setNodeInnerText={this.setNodeInnerText}
+        />
       </div>
     );
   }
