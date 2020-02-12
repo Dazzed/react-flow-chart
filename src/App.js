@@ -3,6 +3,7 @@ import { cloneDeep, mapValues } from 'lodash';
 import { FlowChart, actions } from '@mrblenny/react-flow-chart';
 
 import Sidebar from './components/Sidebar';
+import CustomNode from './components/CustomNode';
 import { defaultChart } from './config/constants';
 
 class App extends Component {
@@ -33,7 +34,13 @@ class App extends Component {
     return (
       <div className="page-content">
         <div className="content">
-          <FlowChart chart={chart} callbacks={stateActions} />
+          <FlowChart
+            chart={chart}
+            callbacks={stateActions}
+            Components={{
+              NodeInner: CustomNode,
+            }}
+          />
         </div>
         <Sidebar
           chart={chart}

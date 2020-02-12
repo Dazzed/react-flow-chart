@@ -20,10 +20,10 @@ export default ({ chart, stateActions, setNodeInnerText }) => (
     {chart.selected.type ? (
       <React.Fragment>
         <div className="message">
-          <div>Change node type</div>
+          <div>Change node content</div>
           <input
             className="text-input"
-            name="node_type"
+            name="node_text"
             value={chart.nodes[chart.selected.id].type}
             onChange={e => {
               setNodeInnerText(chart.selected.id, e.target.value);
@@ -45,7 +45,7 @@ export default ({ chart, stateActions, setNodeInnerText }) => (
         </div>
       </React.Fragment>
     ) : (
-      <div className="message">Click on a Node, Port or Link</div>
+      <div className="message">Click on a Node to edit or delete</div>
     )}
   </div>
 );

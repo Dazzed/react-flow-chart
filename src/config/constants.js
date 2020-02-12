@@ -130,57 +130,42 @@ export const defaultChart = {
 
 export const sidebarItems = [
   {
-    type: 'top/bottom',
+    type: 'Top bottom ports',
     ports: {
       port1: {
         id: 'port1',
         type: 'top',
-        properties: {
-          custom: 'property',
-        },
       },
       port2: {
-        id: 'port1',
+        id: 'port2',
         type: 'bottom',
-        properties: {
-          custom: 'property',
-        },
       },
     },
   },
   {
-    type: 'bottom-only',
+    type: 'Bottom port',
     ports: {
       port1: {
         id: 'port1',
         type: 'bottom',
-        properties: {
-          custom: 'property',
-        },
       },
     },
   },
   {
-    type: 'left-right',
+    type: 'Left right ports',
     ports: {
       port1: {
         id: 'port1',
         type: 'left',
-        properties: {
-          custom: 'property',
-        },
       },
       port2: {
         id: 'port2',
         type: 'right',
-        properties: {
-          custom: 'property',
-        },
       },
     },
   },
   {
-    type: 'all-sides',
+    type: 'Four side ports',
     ports: {
       port1: {
         id: 'port1',
@@ -201,7 +186,7 @@ export const sidebarItems = [
     },
   },
   {
-    type: 'lots-of-ports',
+    type: 'Four side multi port',
     ports: {
       port1: {
         id: 'port1',
