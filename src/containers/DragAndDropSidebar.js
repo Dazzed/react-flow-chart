@@ -10,8 +10,26 @@ const Message = styled.div`
   background: rgba(0, 0, 0, 0.05);
 `;
 
+const Button = styled.div`
+  padding: 10px 15px;
+  background: cornflowerblue;
+  color: white;
+  border-radius: 3px;
+  text-align: center;
+  transition: 0.3s ease all;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  &:active {
+    background: #5682d2;
+  }
+`;
+
 class DragAndDropSidebar extends Component {
   render() {
+    const { chart, stateActions } = this.props;
+
     return (
       <Sidebar>
         <Message>Drag and drop these items onto the canvas.</Message>
@@ -142,6 +160,18 @@ class DragAndDropSidebar extends Component {
             },
           }}
         />
+
+        <br />
+        {chart.selected.type ? (
+          <Message>
+            <div>Type: {chart.selected.type}</div>
+            <div>ID: {chart.selected.id}</div>
+            <br />
+            <Button onClick={() => stateActions.onDeleteKey({})}>Delete</Button>
+          </Message>
+        ) : (
+          <Message>Click on a Node, Port or Link</Message>
+        )}
       </Sidebar>
     );
   }
