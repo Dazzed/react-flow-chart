@@ -19,19 +19,25 @@ export default ({ chart, stateActions, setNodeInnerText }) => (
     <br />
     {chart.selected.type ? (
       <React.Fragment>
+        {chart.nodes[chart.selected.id] && (
+          <div className="message">
+            <div>Change node content</div>
+            <input
+              className="text-input"
+              name="node_text"
+              value={chart.nodes[chart.selected.id].type}
+              onChange={e => {
+                setNodeInnerText(chart.selected.id, e.target.value);
+              }}
+            />
+          </div>
+        )}
+
         <div className="message">
-          <div>Change node content</div>
-          <input
-            className="text-input"
-            name="node_text"
-            value={chart.nodes[chart.selected.id].type}
-            onChange={e => {
-              setNodeInnerText(chart.selected.id, e.target.value);
-            }}
-          />
-        </div>
-        <div className="message">
-          <div>Type: {chart.nodes[chart.selected.id].type}</div>
+          <div>
+            Type:{' '}
+            {chart.nodes[chart.selected.id] ? 'node' : chart.selected.type}
+          </div>
           <div>ID: {chart.selected.id}</div>
           <br />
           <div
