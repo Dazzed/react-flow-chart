@@ -2,13 +2,11 @@ import React, { Component } from 'react';
 import { cloneDeep, mapValues } from 'lodash';
 import { FlowChart, actions } from '@mrblenny/react-flow-chart';
 
-import Page from './components/Page';
-import Content from './components/Content';
-import DragAndDropSidebar from './containers/DragAndDropSidebar';
-import { chartSimple } from './containers/misc/exampleChartState';
+import Sidebar from './components/Sidebar';
+import { defaultChart } from './config/constants';
 
 class App extends Component {
-  state = cloneDeep(chartSimple);
+  state = cloneDeep(defaultChart);
 
   render() {
     const chart = this.state;
@@ -17,12 +15,12 @@ class App extends Component {
     );
 
     return (
-      <Page>
-        <Content>
+      <div className="page-content">
+        <div className="content">
           <FlowChart chart={chart} callbacks={stateActions} />
-        </Content>
-        <DragAndDropSidebar chart={chart} stateActions={stateActions} />
-      </Page>
+        </div>
+        <Sidebar chart={chart} stateActions={stateActions} />
+      </div>
     );
   }
 }
